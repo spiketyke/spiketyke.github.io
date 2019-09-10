@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/tyke.ico?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="是什么？数据结构指的是“一组数据的存储结构”，算法指的是“操作数据的一组方法”。数据结构视为算法服务的，算法作用在特定的数据结构上。  数据结构：数组、链表、栈、队列、散列表、二叉树、堆、跳表、图、Trie树 算法：递归、排序、二分查找、搜索、哈希算法、贪心算法、分治算法、回溯算法、动态规划、字符串匹配算法 复杂度分析（上）：如何分析、统计算法的执行效率和资源消耗？什么是复杂度分析？1、数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构与算法">
+<meta property="og:url" content="http://yoursite.com/2018/09/24/数据结构与算法/index.html">
+<meta property="og:site_name" content="SpikeTyke&#39;s Blog">
+<meta property="og:description" content="是什么？数据结构指的是“一组数据的存储结构”，算法指的是“操作数据的一组方法”。数据结构视为算法服务的，算法作用在特定的数据结构上。  数据结构：数组、链表、栈、队列、散列表、二叉树、堆、跳表、图、Trie树 算法：递归、排序、二分查找、搜索、哈希算法、贪心算法、分治算法、回溯算法、动态规划、字符串匹配算法 复杂度分析（上）：如何分析、统计算法的执行效率和资源消耗？什么是复杂度分析？1、数据结构">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://cdn.spiketyke.cn/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95.jpg">
+<meta property="og:image" content="http://cdn.spiketyke.cn/%E5%B8%B8%E8%A7%81%E5%A4%8D%E6%9D%82%E5%BA%A6.png">
+<meta property="og:image" content="http://cdn.spiketyke.cn/%E5%B8%B8%E8%A7%81%E5%A4%8D%E6%9D%82%E5%BA%A6%E9%87%8F%E7%BA%A7.png">
+<meta property="og:updated_time" content="2019-08-18T14:30:59.204Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构与算法">
+<meta name="twitter:description" content="是什么？数据结构指的是“一组数据的存储结构”，算法指的是“操作数据的一组方法”。数据结构视为算法服务的，算法作用在特定的数据结构上。  数据结构：数组、链表、栈、队列、散列表、二叉树、堆、跳表、图、Trie树 算法：递归、排序、二分查找、搜索、哈希算法、贪心算法、分治算法、回溯算法、动态规划、字符串匹配算法 复杂度分析（上）：如何分析、统计算法的执行效率和资源消耗？什么是复杂度分析？1、数据结构">
+<meta name="twitter:image" content="http://cdn.spiketyke.cn/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95.jpg">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2018/09/24/数据结构与算法/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>数据结构与算法 | SpikeTyke's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+
+
+
+
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SpikeTyke's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/24/数据结构与算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SpikeTyke">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpikeTyke's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据结构与算法
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-24 22:07:49" itemprop="dateCreated datePublished" datetime="2018-09-24T22:07:49+08:00">2018-09-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-18 22:30:59" itemprop="dateModified" datetime="2019-08-18T22:30:59+08:00">2019-08-18</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://cdn.spiketyke.cn/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95.jpg" alt></p>
+<h1 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h1><p>数据结构指的是“一组数据的存储结构”，算法指的是“操作数据的一组方法”。数据结构视为算法服务的，算法作用在特定的数据结构上。 </p>
+<h2 id="数据结构："><a href="#数据结构：" class="headerlink" title="数据结构："></a>数据结构：</h2><p>数组、链表、栈、队列、散列表、二叉树、堆、跳表、图、Trie树</p>
+<h2 id="算法："><a href="#算法：" class="headerlink" title="算法："></a>算法：</h2><p>递归、排序、二分查找、搜索、哈希算法、贪心算法、分治算法、回溯算法、动态规划、字符串匹配算法</p>
+<h1 id="复杂度分析（上）：如何分析、统计算法的执行效率和资源消耗？"><a href="#复杂度分析（上）：如何分析、统计算法的执行效率和资源消耗？" class="headerlink" title="复杂度分析（上）：如何分析、统计算法的执行效率和资源消耗？"></a>复杂度分析（上）：如何分析、统计算法的执行效率和资源消耗？</h1><h2 id="什么是复杂度分析？"><a href="#什么是复杂度分析？" class="headerlink" title="什么是复杂度分析？"></a>什么是复杂度分析？</h2><p>1、数据结构和算法解决是“如何让计算机更快时间、更省空间的解决问题”。<br>2、因此需从执行时间和占用空间两个维度来评估数据结构和算法的性能。<br>3、分别用时间复杂度和空间复杂度两个概念来描述性能问题，二者统称为复杂度。<br>4、复杂度描述的是算法执行时间（或占用空间）与数据规模的增长关系。</p>
+<h2 id="为什么要进行复杂度分析？"><a href="#为什么要进行复杂度分析？" class="headerlink" title="为什么要进行复杂度分析？"></a>为什么要进行复杂度分析？</h2><p>1、和性能测试相比，复杂度分析有不依赖执行环境、成本低、效率高、易操作、指导性强的特点。<br>2、掌握复杂度分析，将能编写出性能更优的代码，有利于降低系统开发和维护成本。</p>
+<h2 id="如何进行复杂度分析？"><a href="#如何进行复杂度分析？" class="headerlink" title="如何进行复杂度分析？"></a>如何进行复杂度分析？</h2><h3 id="大-О-复杂度表示法"><a href="#大-О-复杂度表示法" class="headerlink" title="大 О 复杂度表示法"></a>大 О 复杂度表示法</h3><p>算法的执行效率，粗略的讲，就是算法代码执行的时间。 </p>
+<p><pre><br>1    int cal(int n){<br>2        int sum = 0;<br>3        int i = 1;<br>4        for(; i&lt;=n; ++i){<br>5            sum= sum + i;<br>6        }<br>7        return sum;<br>8    }<br></pre><br>尽管每行代码对应的CPU执行的个数、执行的时间都不一样，但是，我们这里只是粗略估计，所以可以假设每行代码执行的时间都一样，为unit_time。在此基础上，第2、3行代码分别需要1个unit_time的执行时间，第4、5行都运行了n遍，所以需要2n<em> unit_time的执行时间，所以总执行时间就是(2n+2)</em> unit_time.<br>所有代码的执行时间T(n)与每行代码的执行次数成正比。</p>
+<p><pre><br>1 int cal(int n){<br>2     int sum = 0;<br>3     int i = 1;<br>4    int j = 1;<br>5    for(; i&lt;=n; ++i){<br>6        j=1;<br>7        for(; j &lt;= n; ++j){<br>8            sum=sum+i<em> j;<br>9         }<br>10        }<br>11    }<br></em></pre><br>T(n)=(2n 2+2n+3)*unit_time  </p>
+<p>规律：所有代码的执行时间T(n)与每行代码的执行次数n成正比。  </p>
+<p>总结成公式：  </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T(n)=&nbsp;О&nbsp;(f(n))  </p>
+<p>О表示代码的执行时间T(n)与f(n)表达式成正比。大&nbsp;О&nbsp;时间复杂度实际上并不具体表示代码真正的执行时间，而是代码执行时间随数据规模增长的变化趋势，所以，也叫做渐进时间复杂度(asymptotic time complexity)，简称时间复杂度。当n很大时，公式中的低阶、常量、系数三部分并不左右增长趋势，可以忽略，只需记一个最大量级就可以，所以上述代码时间复杂度可以记为：T(n)=О(n);&nbsp;&nbsp;T(n)=О(n*2).  </p>
+<h3 id="时间复杂度分析法则"><a href="#时间复杂度分析法则" class="headerlink" title="时间复杂度分析法则"></a>时间复杂度分析法则</h3><p>1、单段代码看高频：比如循环。<br>2、多段代码取最大：比如一段代码中有单循环和多重循环，那么取多重循环的复杂度。<br>3、加法法则：比如方法有两个参数控制两个循环的次数，那么这时就取二者复杂度相加<br>&nbsp;&nbsp;&nbsp;&nbsp;抽象为公式：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果T1(n)=О(f(n)),T2(n)=О(g(n));那么T(n)=T1(n)+T2(n)=max(О(f(n)),О(g(n))=О(max&nbsp;(&nbsp;f(n),g(n)&nbsp;)).<br>4、乘法法则：嵌套代码求乘积比如递归、多重循环等<br>&nbsp;&nbsp;&nbsp;&nbsp;如果T1(n)=O(f(n))，T2(n)=O(g(n))；那么T(n)=T1(n)<em> T2(n)=О(f(n))</em> О(g(n))=O(f(n)*g(n)).</p>
+<h3 id="几种常见复杂度"><a href="#几种常见复杂度" class="headerlink" title="几种常见复杂度"></a>几种常见复杂度</h3><p><img src="http://cdn.spiketyke.cn/%E5%B8%B8%E8%A7%81%E5%A4%8D%E6%9D%82%E5%BA%A6.png" alt><br>可以粗略地分为两类，多项式量级和非多项式量级，非多项式量级只有两个：O(2*n)和O(n!)  </p>
+<p>把时间复杂度为非多项式量级的算法问题叫做NP(Non-Deterministic&nbsp;Polynomial，非确定多项式)问题，这类算法随着数据规模(n)的增长，算法的执行时间课空间占用率暴增，性能极差。<img src="http://cdn.spiketyke.cn/%E5%B8%B8%E8%A7%81%E5%A4%8D%E6%9D%82%E5%BA%A6%E9%87%8F%E7%BA%A7.png" alt></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/14/Hexo+github pages搭建博客/" rel="next" title="Hexo+github Pages搭建博客">
+                <i class="fa fa-chevron-left"></i> Hexo+github Pages搭建博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/13/JAVA学习笔记/" rel="prev" title="JAVA NOTE1-Fundamental">
+                JAVA NOTE1-Fundamental <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="Mi8xLzM="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/touxiang.jpg" alt="SpikeTyke">
+            
+              <p class="site-author-name" itemprop="name">SpikeTyke</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/spiketyke" title="GitHub &rarr; https://github.com/spiketyke" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:zshibo1998@gmail.com" title="E-Mail &rarr; mailto:zshibo1998@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/p/1005052844769225" title="Weibo &rarr; https://weibo.com/p/1005052844769225" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#是什么？"><span class="nav-number">1.</span> <span class="nav-text">是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构："><span class="nav-number">1.1.</span> <span class="nav-text">数据结构：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法："><span class="nav-number">1.2.</span> <span class="nav-text">算法：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复杂度分析（上）：如何分析、统计算法的执行效率和资源消耗？"><span class="nav-number">2.</span> <span class="nav-text">复杂度分析（上）：如何分析、统计算法的执行效率和资源消耗？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是复杂度分析？"><span class="nav-number">2.1.</span> <span class="nav-text">什么是复杂度分析？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要进行复杂度分析？"><span class="nav-number">2.2.</span> <span class="nav-text">为什么要进行复杂度分析？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何进行复杂度分析？"><span class="nav-number">2.3.</span> <span class="nav-text">如何进行复杂度分析？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#大-О-复杂度表示法"><span class="nav-number">2.3.1.</span> <span class="nav-text">大 О 复杂度表示法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度分析法则"><span class="nav-number">2.3.2.</span> <span class="nav-text">时间复杂度分析法则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几种常见复杂度"><span class="nav-number">2.3.3.</span> <span class="nav-text">几种常见复杂度</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SpikeTyke</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2018/09/24/数据结构与算法/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+<script type="text/javascript" src="/js/love.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
