@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/tyke.ico?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="一、Fundamentalday01public static void main(String[] args){ }//主方法，为程序的入口//程序的执行从main开始，main结束则程序结束 Linux与windows的区别：1）文件系统不同：Linux：目录 &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;Windows：盘符   2）外部设备映射不同：Linux：挂载点    &amp;nbsp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA NOTE1-Fundamental">
+<meta property="og:url" content="http://yoursite.com/2019/04/13/JAVA学习笔记/index.html">
+<meta property="og:site_name" content="SpikeTyke&#39;s Blog">
+<meta property="og:description" content="一、Fundamentalday01public static void main(String[] args){ }//主方法，为程序的入口//程序的执行从main开始，main结束则程序结束 Linux与windows的区别：1）文件系统不同：Linux：目录 &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;Windows：盘符   2）外部设备映射不同：Linux：挂载点    &amp;nbsp">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-18T14:30:50.190Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA NOTE1-Fundamental">
+<meta name="twitter:description" content="一、Fundamentalday01public static void main(String[] args){ }//主方法，为程序的入口//程序的执行从main开始，main结束则程序结束 Linux与windows的区别：1）文件系统不同：Linux：目录 &amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp;Windows：盘符   2）外部设备映射不同：Linux：挂载点    &amp;nbsp">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/04/13/JAVA学习笔记/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JAVA NOTE1-Fundamental | SpikeTyke's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+
+
+
+
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SpikeTyke's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/404/" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/13/JAVA学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SpikeTyke">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SpikeTyke's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JAVA NOTE1-Fundamental
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-13 01:18:29" itemprop="dateCreated datePublished" datetime="2019-04-13T01:18:29+08:00">2019-04-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-18 22:30:50" itemprop="dateModified" datetime="2019-08-18T22:30:50+08:00">2019-08-18</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/笔记/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一、Fundamental"><a href="#一、Fundamental" class="headerlink" title="一、Fundamental"></a>一、Fundamental</h1><h2 id="day01"><a href="#day01" class="headerlink" title="day01"></a>day01</h2><p>public static void main(String[] args){</p>
+<p>}<br>//主方法，为程序的入口<br>//程序的执行从main开始，main结束则程序结束</p>
+<h3 id="Linux与windows的区别："><a href="#Linux与windows的区别：" class="headerlink" title="Linux与windows的区别："></a>Linux与windows的区别：</h3><h4 id="1）文件系统不同："><a href="#1）文件系统不同：" class="headerlink" title="1）文件系统不同："></a>1）文件系统不同：</h4><p>Linux：目录 &nbsp; &nbsp;&nbsp;&nbsp;Windows：盘符  </p>
+<h4 id="2）外部设备映射不同："><a href="#2）外部设备映射不同：" class="headerlink" title="2）外部设备映射不同："></a>2）外部设备映射不同：</h4><p>Linux：挂载点    &nbsp; Windows：盘符  </p>
+<h4 id="3）安全级别不同："><a href="#3）安全级别不同：" class="headerlink" title="3）安全级别不同："></a>3）安全级别不同：</h4><p>Linux：高    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Windows：低</p>
+<h2 id="day02"><a href="#day02" class="headerlink" title="day02"></a>day02</h2><h3 id="1、变量就是指代在内存中开辟的存储空间，用于存放运算过程中需要用到的数据。（不同的变量类型决定了存储结构的类型）"><a href="#1、变量就是指代在内存中开辟的存储空间，用于存放运算过程中需要用到的数据。（不同的变量类型决定了存储结构的类型）" class="headerlink" title="1、变量就是指代在内存中开辟的存储空间，用于存放运算过程中需要用到的数据。（不同的变量类型决定了存储结构的类型）"></a>1、变量就是指代在内存中开辟的存储空间，用于存放运算过程中需要用到的数据。（不同的变量类型决定了存储结构的类型）</h3><p>声明三个变量int a,b,c  </p>
+<h3 id="2、变量命名规则"><a href="#2、变量命名规则" class="headerlink" title="2、变量命名规则"></a>2、变量命名规则</h3><ul>
+<li>可以有字母、数字、“_”和“$“组成  </li>
+<li>首字符不能以数字开头  </li>
+<li>Java大小写敏感  </li>
+<li>不能使用Java保留字（一些java语言规定好的，有特殊含义的字符），如int、if、for、break等  </li>
+<li>中文可以作为变量名，但不提倡用  </li>
+</ul>
+<p>驼峰命名，多个单词组成，第一个单词小写其余单词首字母大写  </p>
+<h3 id="3、初始化：第一次赋值"><a href="#3、初始化：第一次赋值" class="headerlink" title="3、初始化：第一次赋值"></a>3、初始化：第一次赋值</h3><h4 id="1）声明的同时初始化："><a href="#1）声明的同时初始化：" class="headerlink" title="1）声明的同时初始化："></a>1）声明的同时初始化：</h4><p>int a=250;  </p>
+<h4 id="2）先声明后初始化："><a href="#2）先声明后初始化：" class="headerlink" title="2）先声明后初始化："></a>2）先声明后初始化：</h4><p>int a;<br>a=250;  </p>
+<p>c语言：可以不必初始化<br>int a;<br>输出a的值 ——– 正确（随机赋值）<br>java语言：<br>Int a;<br>输出a的值 ——– 错误  </p>
+<h3 id="4、使用"><a href="#4、使用" class="headerlink" title="4、使用:"></a>4、使用:</h3><h4 id="1）必需与数据类型匹配"><a href="#1）必需与数据类型匹配" class="headerlink" title="1）必需与数据类型匹配"></a>1）必需与数据类型匹配</h4><h4 id="2）对变量的操作就是对它所存的那个数的操作"><a href="#2）对变量的操作就是对它所存的那个数的操作" class="headerlink" title="2）对变量的操作就是对它所存的那个数的操作"></a>2）对变量的操作就是对它所存的那个数的操作</h4><h4 id="3）变量在用之前必需声明并初始化"><a href="#3）变量在用之前必需声明并初始化" class="headerlink" title="3）变量在用之前必需声明并初始化"></a>3）变量在用之前必需声明并初始化</h4><p>类名首字母大写  </p>
+<h3 id="注释分三种："><a href="#注释分三种：" class="headerlink" title="注释分三种："></a>注释分三种：</h3><p>1、单行注释”//“<br>2、多行注释”/<em>     </em>/“<br>3、文档注释”/*<em>    </em>/“  </p>
+<h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><h4 id="1）int-整型，4个字节，-21个多亿到21个多亿"><a href="#1）int-整型，4个字节，-21个多亿到21个多亿" class="headerlink" title="1）int:整型，4个字节，-21个多亿到21个多亿"></a>1）int:整型，4个字节，-21个多亿到21个多亿</h4><p>1.1）整数直接量默认为int类型，不能超范围，否则会编译错误（直接量超范围）<br>1.2）两个整数相除，结果还是整数，小数位无条件舍弃<br>1.3）运算时超出范围会发生溢出，溢出是需要避免的（运算时超范围）  </p>
+<h4 id="2）long：长整型，8个字节，很大很大"><a href="#2）long：长整型，8个字节，很大很大" class="headerlink" title="2）long：长整型，8个字节，很大很大"></a>2）long：长整型，8个字节，很大很大</h4><p>2.1）长整型直接量为在数字后加l或L<br>2.2）算数运算时有可能超范围，建议在第一个数字后加l<br>2.3）System.currentTimeMillis()用于获取自1970.1.1零时到此时此刻所经历的毫秒数  </p>
+<h4 id="3）double："><a href="#3）double：" class="headerlink" title="3）double："></a>3）double：</h4><p>3.1）浮点数直接量默认为double型表示float需要加f或F<br>3.2）double型数据运算时，可能会发生舍入误差  </p>
+<h4 id="4）char："><a href="#4）char：" class="headerlink" title="4）char："></a>4）char：</h4><p>4.1）采用Unicode编码，每个字符（char）都有一个对应的码，表现形式为char字符，实质上是int码<br>4.2）字符必需放在单引号中，有且仅有一个<br>4.3）特殊字符需要通过\来转义  </p>
+<h4 id="5）boolean：布尔型，1个字节"><a href="#5）boolean：布尔型，1个字节" class="headerlink" title="5）boolean：布尔型，1个字节"></a>5）boolean：布尔型，1个字节</h4><p>5.1）只能取值为true和false  </p>
+<h3 id="基本类型间的转换"><a href="#基本类型间的转换" class="headerlink" title="基本类型间的转换"></a>基本类型间的转换</h3><p>类型从小到大依次为：<br>byte,short,int,long,float,double<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        ↑<br>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; char  </p>
+<h4 id="1）两种方式："><a href="#1）两种方式：" class="headerlink" title="1）两种方式："></a>1）两种方式：</h4><p>1.1）自动类型转换：从小类型到大类型<br>1.2）强制类型转换：从大类型到小类型<br>强转有可能溢出或精度丢失  </p>
+<h4 id="2）两点规则："><a href="#2）两点规则：" class="headerlink" title="2）两点规则："></a>2）两点规则：</h4><p>2.1）整数直接量可以直接赋值给byte、short、char但不能超范围<br>2.2）byte、short、char型变量参与运算时，先一律转为int再运算<br>1B=8Bit（位）</p>
+<h3 id="Scanner的用法："><a href="#Scanner的用法：" class="headerlink" title="Scanner的用法："></a>Scanner的用法：</h3><h4 id="1）在package下："><a href="#1）在package下：" class="headerlink" title="1）在package下："></a>1）在package下：</h4><p>import java.util.Scanner;  </p>
+<h4 id="2）在main方法中："><a href="#2）在main方法中：" class="headerlink" title="2）在main方法中："></a>2）在main方法中：</h4><p>Scanner scan = new Scanner(System.in);  </p>
+<h4 id="3）在第2步之下："><a href="#3）在第2步之下：" class="headerlink" title="3）在第2步之下："></a>3）在第2步之下：</h4><p>System.out.println(“请输入年龄：”);<br>int age = scan.nextInt();<br>System.out.println(“请输入单价：”);<br>double price = scan.nextDouble();  </p>
+<h3 id="给变量赋值三种方式："><a href="#给变量赋值三种方式：" class="headerlink" title="给变量赋值三种方式："></a>给变量赋值三种方式：</h3><p>&emsp;&emsp;1）赋值一个固定的值<br>&emsp;&emsp;2）接收用户输入的一个值<br>&emsp;&emsp;3）系统随机生成一个值  </p>
+<p>补充：<br>&emsp;&emsp;1、变量的作用域（范围）<br>从变量的声明开始，到包含它最近的大括号结束<br>&emsp;&emsp;2、变量的重名问题：<br>作用域重叠时，变量不能重名  </p>
+<h2 id="day03"><a href="#day03" class="headerlink" title="day03"></a>day03</h2><h3 id="1、运算符："><a href="#1、运算符：" class="headerlink" title="1、运算符："></a>1、运算符：</h3><p>####（1）算术：+,-,* ,/,%(取余),++,–<br>自增（减）：<br>如果写在变量前表示在使用这个变量之前加1或减1<br>如果写在变量之后表示这个变量使用完后再加1或减1  </p>
+<p>####（2）关系：<br>,&gt;,&lt;,==,&gt;=,&lt;=,!=<br>关系运算的结果为Boolean型  </p>
+<p>####（3）逻辑：  </p>
+<h6 id="1）-amp-amp-：逻辑与（并且）"><a href="#1）-amp-amp-：逻辑与（并且）" class="headerlink" title="1）&amp;&amp;：逻辑与（并且）"></a>1）&amp;&amp;：逻辑与（并且）</h6><p>||：逻辑或（或者）<br>！：逻辑非（取反）  </p>
+<h5 id="2）逻辑运算是建立在关系运算的基础之上的"><a href="#2）逻辑运算是建立在关系运算的基础之上的" class="headerlink" title="2）逻辑运算是建立在关系运算的基础之上的"></a>2）逻辑运算是建立在关系运算的基础之上的</h5><p>逻辑运算的结果也是Boolean型  </p>
+<p>####（4）赋值：<br>1）简单赋值运算符：=<br>2）扩展赋值运算符：+=，-=， *=，/=，%=  </p>
+<p>####（5）字符串拼接：  </p>
+<h6 id="1）-："><a href="#1）-：" class="headerlink" title="1）+："></a>1）+：</h6><p>&emsp;&emsp;1.1）若两边为数字，则做加法运算<br>&emsp;&emsp;1.2）若有一边为字符串，则做字符串拼接<br>&emsp;&emsp;System.out.println(10+20+””+30);    //“3030”<br>&emsp;&emsp;System.out.println(10+20+30+””);    //“60”<br>&emsp;&emsp;System.out.println(“”+10+20+30);    “102030”  </p>
+<h4 id="（6）三目："><a href="#（6）三目：" class="headerlink" title="（6）三目："></a>（6）三目：</h4><h5 id="1）语法："><a href="#1）语法：" class="headerlink" title="1）语法："></a>1）语法：</h5><p>boolean?数1:数2  </p>
+<h5 id="2）执行过程："><a href="#2）执行过程：" class="headerlink" title="2）执行过程："></a>2）执行过程：</h5><p>计算boolean的值:<br>若为true，则整个的结果为数1<br>若为false，则整个的结果为数2  </p>
+<h3 id="2、分支结构："><a href="#2、分支结构：" class="headerlink" title="2、分支结构："></a>2、分支结构：</h3><p>1）if结构：1条路<br>2）if… else结构：2条路<br>3）if…else if结构：多条路<br>4）switch…case结构：多条路<br>优点：效率高、结构清晰<br>缺点：整数、相等<br>break：跳出switch<br>switch(num){//num=byte,short,int,char<br>case1:<br>System.out.println();<br>break;<br>case2:<br>System.out.println();<br>break;<br>default://所有case都没配上时执行，与位置无关<br>System.out.println();<br>}  </p>
+<p>常见面试题：<br>short s1=5;<br>s1=s1+10;//编译错误，必需手动强转s1=(short)(s1+10)<br>s1+=10    ;正确，扩展赋值运算自动强转</p>
+<h2 id="day04"><a href="#day04" class="headerlink" title="day04"></a>day04</h2><h3 id="1、循环：反复执行一段相同或相似的代码"><a href="#1、循环：反复执行一段相同或相似的代码" class="headerlink" title="1、循环：反复执行一段相同或相似的代码"></a>1、循环：反复执行一段相同或相似的代码</h3><h3 id="2、循环三要素："><a href="#2、循环三要素：" class="headerlink" title="2、循环三要素："></a>2、循环三要素：</h3><p>1）循环变量的初始化<br>2）循环的条件（以循环变量为基础）<br>3）循环变量的改变（向着循环的结束变）<br>循环变量：在循环过程中改变的那个量  </p>
+<h3 id="3、循环结构"><a href="#3、循环结构" class="headerlink" title="3、循环结构"></a>3、循环结构</h3><p>1）while：先判断后执行，有可能一次都不执行<br>2）do…while结构：先执行一次后判断，至少执行一次<br>    第一要素与第三要素相同时首选<br>3）for结构：应用率最高  </p>
+<p>continue：跳过循环体剩余语句而进入下一次循环  </p>
+<p>1）顺序：从上往下逐行执行，每句必走<br>2）分支：有条件的执行某语句一次，并非每句必走<br>3）循环：有条件的执行某语句多次，并非每句必走  </p>
+<p>Math.random()–0.0到0.9999…..  </p>
+<p>for(要素1;要素2;要素3){<br>语句块<br>}</p>
+<h2 id="day05"><a href="#day05" class="headerlink" title="day05"></a>day05</h2><h3 id="1、三种循环结构的更加实用情况："><a href="#1、三种循环结构的更加实用情况：" class="headerlink" title="1、三种循环结构的更加实用情况："></a>1、三种循环结构的更加实用情况：</h3><p>1）while：“当…”循环<br>2）do…while：“直到…”循环<br>第1要素与第3要素相同时首选<br>3）for：固定次数循环，应用率最高  </p>
+<h3 id="2、嵌套循环："><a href="#2、嵌套循环：" class="headerlink" title="2、嵌套循环："></a>2、嵌套循环：</h3><p>1）循环中套循环，一般多行多列时使用，外层控制行，内层控制列<br>2）执行过程：外层循环走一次，内层循环走所有次<br>3）建议：嵌套层次越少越好（一般最多两层循环）<br>   若逻辑必需通过3层以上的循环才能解决，说明设计有问题<br>4）break只能跳出一层循环（想一下子跳出所有层循环，这样的需求没  有）  </p>
+<h3 id="3、数组："><a href="#3、数组：" class="headerlink" title="3、数组："></a>3、数组：</h3><h4 id="1）相同数据类型元素的集合"><a href="#1）相同数据类型元素的集合" class="headerlink" title="1）相同数据类型元素的集合"></a>1）相同数据类型元素的集合</h4><h4 id="2）数组是一种数据类型（引用类型）"><a href="#2）数组是一种数据类型（引用类型）" class="headerlink" title="2）数组是一种数据类型（引用类型）"></a>2）数组是一种数据类型（引用类型）</h4><h4 id="3）数组的定义："><a href="#3）数组的定义：" class="headerlink" title="3）数组的定义："></a>3）数组的定义：</h4><p>int[] arr=new int[4]  </p>
+<h4 id="4）数组的初始化："><a href="#4）数组的初始化：" class="headerlink" title="4）数组的初始化："></a>4）数组的初始化：</h4><p>int[] arr=new int[3];        //0,0,0<br>int[] arr={1,4,7};            //1,4,7<br>int[] arr=new int[]{1,4,7};    //1,4,7  </p>
+<p>int[] arr;<br>arr={1,4,7};    //编译错误，此方式只能声明的同时初始化<br>arr=new int[]{1,4,7};        //正确  </p>
+<h4 id="5）数组的访问："><a href="#5）数组的访问：" class="headerlink" title="5）数组的访问："></a>5）数组的访问：</h4><p>5.1）通过数组名.length可以获取数组的长度<br>5.2）通过索引/下标来访问数组中的元素<br> 下标从0开始，最大到arr.length-1<br>   int[] arr=new int[3];<br>   arr[3]=400;//数组下标越界异常  </p>
+<h4 id="6）数组的遍历："><a href="#6）数组的遍历：" class="headerlink" title="6）数组的遍历："></a>6）数组的遍历：</h4><p>int[] arr=new int[10];<br>for(int i=0;i&lt;arr.length;i++){<br>arr[i]=100;<br>}  </p>
+<h4 id="7）数组的复制："><a href="#7）数组的复制：" class="headerlink" title="7）数组的复制："></a>7）数组的复制：</h4><p>System.arraycopy(a,1,a1,0,4);//效率最高<br>int[] a1=Array.copyOf(a,6);<br>a=Arrays.copyOf(a,a.length+1);    //扩容  </p>
+<h4 id="8）数组的排序："><a href="#8）数组的排序：" class="headerlink" title="8）数组的排序："></a>8）数组的排序：</h4><p>Arrays.sort(sort);//对arr升序排序<br>冒泡的工作原理：<br>8.1）4个数冒三轮<br>8.2）每一轮都是从第一个元素开始冒<br> 每一次都是和它的下一个元素比<br>8.3）冒出来的数就不再比较<br>4、程序=算法+数据结构<br>算法：解决问题的流程/步骤（顺序、分支、循环）<br>数据结构：将数据按照某种特定的结构来保存<br>     数怎么存<br>设计良好的数据结构会导致好的算法  </p>
+<p>冒泡排序代码：<br>for(int i=0;i&lt;arr.length-1;i++){<br>for(int j=0;j&lt;arr.length-1-i;j++){<br>if(arr[j]&gt;arr[j+1]){<br>int t=arr[j];<br>arr[j]=arr[j+1];<br>arr[j+1]=t;<br>}<br>}<br>}  </p>
+<p>\t:制表符<br>//声明double型数组dou，包含10个元素<br>//每个元素都是double型，默认值0.0（boolean型默认值为false）<br>double[] dou=new double[10]  </p>
+<p>找最大值的算法：<br>1、假设第一个元素为最大值<br>int max=arr[0];<br>2、遍历剩余元素，将剩余元素与max对比，若剩余元素大于max，修改max为较大的数<br>for(int i=0;i&lt;arr.length;i++){<br>if(arr[i]&gt;max){<br>max=arr[i];<br>}<br>}  </p>
+<h2 id="day06"><a href="#day06" class="headerlink" title="day06"></a>day06</h2><h3 id="1、方法：函数（c）-过程-vb"><a href="#1、方法：函数（c）-过程-vb" class="headerlink" title="1、方法：函数（c）/过程(vb)"></a>1、方法：函数（c）/过程(vb)</h3><p>1）用于封装一段特定的逻辑功能<br>2）方法尽可能的独立（一个方法只干一件事）<br>3）方法可以被反复调用多次<br>4）避免代码的重复，便于代码的维护，有利于团队的协作开发  </p>
+<h3 id="2、方法的定义："><a href="#2、方法的定义：" class="headerlink" title="2、方法的定义："></a>2、方法的定义：</h3><p>修饰词 返回值类型 方法名（参数列表）{<br>方法体<br>}<br>方法可以有参也可以无参，有参更灵活<br>方法可能有返回值也可以没有返回值<br>无返回值时，返回值类型写为void<br>有返回值时，返回值类型写为特定的数据类型  </p>
+<h3 id="3、方法的调用："><a href="#3、方法的调用：" class="headerlink" title="3、方法的调用："></a>3、方法的调用：</h3><p>1）无返回值方法：<br>方法名（有参传参）；<br>2）有返回值方法：<br>数据类型 变量 = 方法名（有参传参）；  </p>
+<h3 id="4、return："><a href="#4、return：" class="headerlink" title="4、return："></a>4、return：</h3><p>1）return 值；//1、结束方法的执行 2、返回一个值<br>2）return；//1、结束方法的执行，只可用于void  </p>
+<h3 id="5、猜字符小游戏："><a href="#5、猜字符小游戏：" class="headerlink" title="5、猜字符小游戏："></a>5、猜字符小游戏：</h3><h4 id="（1）、设计数据结构："><a href="#（1）、设计数据结构：" class="headerlink" title="（1）、设计数据结构："></a>（1）、设计数据结构：</h4><p>1）char[] chs;//随机生成的字符数组<br>2）char[] input;//用户输入的字符数组<br>3）int[] result;//对比的结果<br>4）int score;//得分<br>int count;//猜错的次数  </p>
+<h4 id="（2）、设计程序结构：方法"><a href="#（2）、设计程序结构：方法" class="headerlink" title="（2）、设计程序结构：方法"></a>（2）、设计程序结构：方法</h4><p>1）主方法：  </p>
+<p>2）随机生成字符数组：<br>public static char[]  generate(){<br>char[] chs=new char[len];  </p>
+<p>return chs;<br>}<br>3）对比：随机字符数组与用户输入的字符数组<br>public static int[] check(char[] chs,char[] input){<br>int[] result=new int[2];<br>}  </p>
+<h4 id="（3）、设计算法：方法的实现"><a href="#（3）、设计算法：方法的实现" class="headerlink" title="（3）、设计算法：方法的实现"></a>（3）、设计算法：方法的实现</h4><p>输入exit退出<br>if(str.equals(“EXIT”)){<br>System.out.println(“退出成功”);<br>break;<br>}  </p>
+<p>对基本类型判断相等，用==<br>对引用类型判断相等，用.equals(“”)  </p>
+<p>String str=scan.next().toUpperCase();//转为大写  </p>
+<p>String s =scan.next();<br>char[] input=s.toCharArray();  </p>
+<p>方法可以有参数也可以无参数，—有参可以使方法更灵活  </p>
+<p>方法可以有返回值，也可以有没有返回值，没有返回值时，返回值类型为void<br>有返回值时，返回值类型写为特定的数据类型  </p>
+<p>方法执行完之后，需要用到方法中的某个数据<br>——————有返回值  </p>
+<p>double a=Math.sqrt(100);//平方根  </p>
+<p>质数（素数）：只能被1和它本身整除的数<br>不是质数：只要有得0的<br>是质数：所有都不得0  </p>
+<p>并非一次判断得到最终结果——–开关（3步）  </p>
+<blockquote>
+<p>boolean[] flags= new boolean[letters.length];</p>
+</blockquote>
+<pre><code>for(int i=0;i&lt;chs.length;i++) {
+    int index;
+    do {
+        index=(int)(Math.random()*26);
+    }while(flags[index]==true);
+
+    chs[i]=letters[index];
+
+    flags[index]=true;
+}
+</code></pre><p>当flags为true时一直进行循环</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/24/数据结构与算法/" rel="next" title="数据结构与算法">
+                <i class="fa fa-chevron-left"></i> 数据结构与算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/18/iOS翻墙/" rel="prev" title="iOS科学上网">
+                iOS科学上网 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="Mi8xLzM="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/touxiang.jpg" alt="SpikeTyke">
+            
+              <p class="site-author-name" itemprop="name">SpikeTyke</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/spiketyke" title="GitHub &rarr; https://github.com/spiketyke" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:zshibo1998@gmail.com" title="E-Mail &rarr; mailto:zshibo1998@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/p/1005052844769225" title="Weibo &rarr; https://weibo.com/p/1005052844769225" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、Fundamental"><span class="nav-number">1.</span> <span class="nav-text">一、Fundamental</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#day01"><span class="nav-number">1.1.</span> <span class="nav-text">day01</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux与windows的区别："><span class="nav-number">1.1.1.</span> <span class="nav-text">Linux与windows的区别：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）文件系统不同："><span class="nav-number">1.1.1.1.</span> <span class="nav-text">1）文件系统不同：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）外部设备映射不同："><span class="nav-number">1.1.1.2.</span> <span class="nav-text">2）外部设备映射不同：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3）安全级别不同："><span class="nav-number">1.1.1.3.</span> <span class="nav-text">3）安全级别不同：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#day02"><span class="nav-number">1.2.</span> <span class="nav-text">day02</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、变量就是指代在内存中开辟的存储空间，用于存放运算过程中需要用到的数据。（不同的变量类型决定了存储结构的类型）"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、变量就是指代在内存中开辟的存储空间，用于存放运算过程中需要用到的数据。（不同的变量类型决定了存储结构的类型）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、变量命名规则"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、变量命名规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、初始化：第一次赋值"><span class="nav-number">1.2.3.</span> <span class="nav-text">3、初始化：第一次赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）声明的同时初始化："><span class="nav-number">1.2.3.1.</span> <span class="nav-text">1）声明的同时初始化：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）先声明后初始化："><span class="nav-number">1.2.3.2.</span> <span class="nav-text">2）先声明后初始化：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、使用"><span class="nav-number">1.2.4.</span> <span class="nav-text">4、使用:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）必需与数据类型匹配"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">1）必需与数据类型匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）对变量的操作就是对它所存的那个数的操作"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">2）对变量的操作就是对它所存的那个数的操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3）变量在用之前必需声明并初始化"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">3）变量在用之前必需声明并初始化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释分三种："><span class="nav-number">1.2.5.</span> <span class="nav-text">注释分三种：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.2.6.</span> <span class="nav-text">基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）int-整型，4个字节，-21个多亿到21个多亿"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">1）int:整型，4个字节，-21个多亿到21个多亿</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）long：长整型，8个字节，很大很大"><span class="nav-number">1.2.6.2.</span> <span class="nav-text">2）long：长整型，8个字节，很大很大</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3）double："><span class="nav-number">1.2.6.3.</span> <span class="nav-text">3）double：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4）char："><span class="nav-number">1.2.6.4.</span> <span class="nav-text">4）char：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5）boolean：布尔型，1个字节"><span class="nav-number">1.2.6.5.</span> <span class="nav-text">5）boolean：布尔型，1个字节</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型间的转换"><span class="nav-number">1.2.7.</span> <span class="nav-text">基本类型间的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）两种方式："><span class="nav-number">1.2.7.1.</span> <span class="nav-text">1）两种方式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）两点规则："><span class="nav-number">1.2.7.2.</span> <span class="nav-text">2）两点规则：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scanner的用法："><span class="nav-number">1.2.8.</span> <span class="nav-text">Scanner的用法：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）在package下："><span class="nav-number">1.2.8.1.</span> <span class="nav-text">1）在package下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）在main方法中："><span class="nav-number">1.2.8.2.</span> <span class="nav-text">2）在main方法中：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3）在第2步之下："><span class="nav-number">1.2.8.3.</span> <span class="nav-text">3）在第2步之下：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给变量赋值三种方式："><span class="nav-number">1.2.9.</span> <span class="nav-text">给变量赋值三种方式：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#day03"><span class="nav-number">1.3.</span> <span class="nav-text">day03</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、运算符："><span class="nav-number">1.3.1.</span> <span class="nav-text">1、运算符：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1）-amp-amp-：逻辑与（并且）"><span class="nav-number">1.3.1.0.0.1.</span> <span class="nav-text">1）&amp;&amp;：逻辑与（并且）</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2）逻辑运算是建立在关系运算的基础之上的"><span class="nav-number">1.3.1.0.1.</span> <span class="nav-text">2）逻辑运算是建立在关系运算的基础之上的</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1）-："><span class="nav-number">1.3.1.0.1.1.</span> <span class="nav-text">1）+：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（6）三目："><span class="nav-number">1.3.1.1.</span> <span class="nav-text">（6）三目：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1）语法："><span class="nav-number">1.3.1.1.1.</span> <span class="nav-text">1）语法：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2）执行过程："><span class="nav-number">1.3.1.1.2.</span> <span class="nav-text">2）执行过程：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、分支结构："><span class="nav-number">1.3.2.</span> <span class="nav-text">2、分支结构：</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#day04"><span class="nav-number">1.4.</span> <span class="nav-text">day04</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、循环：反复执行一段相同或相似的代码"><span class="nav-number">1.4.1.</span> <span class="nav-text">1、循环：反复执行一段相同或相似的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、循环三要素："><span class="nav-number">1.4.2.</span> <span class="nav-text">2、循环三要素：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、循环结构"><span class="nav-number">1.4.3.</span> <span class="nav-text">3、循环结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#day05"><span class="nav-number">1.5.</span> <span class="nav-text">day05</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、三种循环结构的更加实用情况："><span class="nav-number">1.5.1.</span> <span class="nav-text">1、三种循环结构的更加实用情况：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、嵌套循环："><span class="nav-number">1.5.2.</span> <span class="nav-text">2、嵌套循环：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、数组："><span class="nav-number">1.5.3.</span> <span class="nav-text">3、数组：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）相同数据类型元素的集合"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">1）相同数据类型元素的集合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）数组是一种数据类型（引用类型）"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">2）数组是一种数据类型（引用类型）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3）数组的定义："><span class="nav-number">1.5.3.3.</span> <span class="nav-text">3）数组的定义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4）数组的初始化："><span class="nav-number">1.5.3.4.</span> <span class="nav-text">4）数组的初始化：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5）数组的访问："><span class="nav-number">1.5.3.5.</span> <span class="nav-text">5）数组的访问：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6）数组的遍历："><span class="nav-number">1.5.3.6.</span> <span class="nav-text">6）数组的遍历：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7）数组的复制："><span class="nav-number">1.5.3.7.</span> <span class="nav-text">7）数组的复制：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8）数组的排序："><span class="nav-number">1.5.3.8.</span> <span class="nav-text">8）数组的排序：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#day06"><span class="nav-number">1.6.</span> <span class="nav-text">day06</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、方法：函数（c）-过程-vb"><span class="nav-number">1.6.1.</span> <span class="nav-text">1、方法：函数（c）/过程(vb)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、方法的定义："><span class="nav-number">1.6.2.</span> <span class="nav-text">2、方法的定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、方法的调用："><span class="nav-number">1.6.3.</span> <span class="nav-text">3、方法的调用：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、return："><span class="nav-number">1.6.4.</span> <span class="nav-text">4、return：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、猜字符小游戏："><span class="nav-number">1.6.5.</span> <span class="nav-text">5、猜字符小游戏：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（1）、设计数据结构："><span class="nav-number">1.6.5.1.</span> <span class="nav-text">（1）、设计数据结构：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（2）、设计程序结构：方法"><span class="nav-number">1.6.5.2.</span> <span class="nav-text">（2）、设计程序结构：方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（3）、设计算法：方法的实现"><span class="nav-number">1.6.5.3.</span> <span class="nav-text">（3）、设计算法：方法的实现</span></a></li></ol></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.miitbeian.gov.cn" rel="noopener" target="_blank">18035741 </a>&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SpikeTyke</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2019/04/13/JAVA学习笔记/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+<script type="text/javascript" src="/js/love.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
