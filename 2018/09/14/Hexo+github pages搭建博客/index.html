@@ -191,7 +191,7 @@ hexo g -d
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2018/09/14/Hexo+github pages搭建博客/" data-id="ck1n6xrz70006vk8zhe544et5" class="article-share-link" data-share="baidu" data-title="Hexo+github Pages搭建博客">分享到</a>
+        <a data-url="http://yoursite.com/2018/09/14/Hexo+github pages搭建博客/" data-id="ck1n75yaw0005yp8ztyfsx4wv" class="article-share-link" data-share="baidu" data-title="Hexo+github Pages搭建博客">分享到</a>
       
 
       
@@ -378,6 +378,44 @@ var duoshuoQuery = {short_name:"reqianduan"};
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+                processEscapes: true
+                    
+}
+  
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+                  
+}
+    
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                            all[i].SourceElement().parentNode.className += ' has-jax';
+                                    
+            }
+                
+        });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.5.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <script src="/js/script.js"></script>
